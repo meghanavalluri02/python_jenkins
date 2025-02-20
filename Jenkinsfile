@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/meghanavalluri02/python_jenkins.git'
+                git branch: 'main', url: 'https://github.com/meghanavalluri02/python_jenkins.git'
             }
         }
         stage('Install Dependencies') {
@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Run Tests') {
             steps {
-                sh 'pytest tests/'
+                sh 'pytest tests/'  // Ensure the "tests" directory exists in your repo
             }
         }
         stage('Build Artifact') {
